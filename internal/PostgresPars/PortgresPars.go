@@ -13,7 +13,7 @@ var db *sql.DB
 
 //Вспомогательная функция, для установления соединения с БД на локальной машине
 func makeConnectToDB() {
-	PostSQLConnStr := "host=localhost port=5432 user=Valeriy password=10IMclass dbname=TestGo sslmode=disable"
+	PostSQLConnStr := "host=127.0.0.1 port=49161 user=root password=12345 dbname=ProjectDB sslmode=disable"
 
 	DB, err := sql.Open("postgres", PostSQLConnStr)
 

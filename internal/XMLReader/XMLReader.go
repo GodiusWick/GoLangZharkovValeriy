@@ -32,27 +32,27 @@ func MarshalToJson(Projects []DataStructures.Project, Buildings []DataStructures
 	Sections []DataStructures.Section, Lots []DataStructures.Lot, IdProjects []int,
 	IdBuildings []int, IdSections []int) []DataStructures.Project {
 
-	for i, elem := range IdSections {
-		for j, elemS := range Sections {
+	for i, elemS := range Sections {
+		for j, elem := range IdSections {
 			if elemS.Id == elem {
-				Sections[j].Lot = append(Sections[j].Lot, Lots[i])
+				Sections[i].Lot = append(Sections[i].Lot, Lots[j])
 			}
 		}
 
 	}
 
-	for i, elem := range IdBuildings {
-		for j, elemB := range Buildings {
+	for i, elemB := range Buildings {
+		for j, elem := range IdBuildings {
 			if elemB.Id == elem {
-				Buildings[j].Section = append(Buildings[j].Section, Sections[i])
+				Buildings[i].Section = append(Buildings[i].Section, Sections[j])
 			}
 		}
 	}
 
-	for i, elem := range IdProjects {
-		for j, elemP := range Projects {
+	for i, elemP := range Projects {
+		for j, elem := range IdProjects {
 			if elemP.Id == elem {
-				Projects[j].Building = append(Projects[j].Building, Buildings[i])
+				Projects[i].Building = append(Projects[i].Building, Buildings[j])
 			}
 		}
 	}
