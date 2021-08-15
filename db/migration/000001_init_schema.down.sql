@@ -1,5 +1,0 @@
-DROP TABLE IF EXISTS building;
-DROP TABLE IF EXISTS lot;
-DROP TABLE IF EXISTS project;
-DROP TABLE IF EXISTS lotbuilding;
-DROP TABLE IF EXISTS projectbuilding;
