@@ -3,7 +3,7 @@ package XMLReader
 import (
 	"encoding/xml"
 	"fmt"
-	"internal/DataStructures"
+	"internal/Structures"
 	"io/ioutil"
 	"os"
 
@@ -28,9 +28,9 @@ func UnmarshalXMLFile(url string) DocumentData {
 	return data
 }
 
-func MarshalToJson(Projects []DataStructures.Project, Buildings []DataStructures.Building,
-	Sections []DataStructures.Section, Lots []DataStructures.Lot, IdProjects []int,
-	IdBuildings []int, IdSections []int) []DataStructures.Project {
+func MarshalToJson(Projects []Structures.Project, Buildings []Structures.Building,
+	Sections []Structures.Section, Lots []Structures.Lot, IdProjects []int,
+	IdBuildings []int, IdSections []int) []Structures.Project {
 
 	for i, elemS := range Sections {
 		for j, elem := range IdSections {
