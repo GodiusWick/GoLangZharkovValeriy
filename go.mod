@@ -4,14 +4,14 @@ go 1.16
 
 require github.com/lib/pq v1.10.2
 
-require internal/Structures v1.0.0
+replace postgres => ./postgres
 
-replace internal/Structures => ./internal/Structures
+replace structures => ./structures
 
-require internal/Postgres v1.0.0
+require (
+	postgres v0.0.0-00010101000000-000000000000
+	structures v0.0.0-00010101000000-000000000000
+	xmlreader v0.0.0-00010101000000-000000000000
+)
 
-replace internal/Postgres => ./internal/Postgres
-
-require internal/XMLReader v1.0.0
-
-replace internal/XMLReader => ./internal/XMLReader
+replace xmlreader => ./xmlreader
