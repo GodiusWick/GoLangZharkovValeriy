@@ -1,0 +1,23 @@
+# Этап сборочки
+FROM golang:1.16-alpine as builder
+
+WORKDIR /app
+
+COPY go.mod .
+COPY go.sum .
+
+RUN go mod download
+
+COPY . .
+
+RUN go build -o main
+
+# Собираем на ядре
+
+FROM alpine:latest
+WORKDIR /app/
+COPY --from=builder /app .
+
+EXPOSE 8081
+
+CMD ["./main"]

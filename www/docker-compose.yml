@@ -1,0 +1,30 @@
+version: "3.8"
+
+services: 
+  todo-app:
+    build: ./
+    command: ./main
+    ports:
+      - 49157:8080
+    depends_on: 
+      - dbxmlReader
+      - apixml
+
+  apixml:
+    build: ./../APIxml
+    command: ./main
+    ports:
+      - 49169:8081
+    depends_on:
+      - dbxmlReader
+
+  dbxmlReader:
+    restart: always
+    image: postgres:13.3
+    volumes: 
+    - ./ .database/postgres/data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_USER=root
+    ports:
+    - 49156:5432
